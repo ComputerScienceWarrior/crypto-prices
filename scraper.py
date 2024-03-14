@@ -16,9 +16,9 @@ if tbody:
         row_data = []
         for column in columns:
             text = column.get_text(strip=True)
-            if text:  # check if the text is not empty
+            if text:
                 row_data.append(text)
-        if row_data:  # check if the row has non-empty data
+        if row_data:
             data.append(row_data)
 
 for item in data:
