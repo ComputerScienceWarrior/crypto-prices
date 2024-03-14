@@ -7,9 +7,19 @@ e = BeautifulSoup(html.content, 'html.parser')
 
 tbody = e.find('tbody')
 
+data = []
+
 if tbody:
     rows = tbody.find_all('tr')
     for row in rows:
         columns = row.find_all('td')
+        row_data = []
         for column in columns:
-            print(column.get_text())
+            text = column.get_text(strip=True)
+            if text:  # check if the text is not empty
+                row_data.append(text)
+        if row_data:  # check if the row has non-empty data
+            data.append(row_data)
+
+for item in data:
+    print(item)
